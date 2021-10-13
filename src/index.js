@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MyApp from './MyApp';
 import MyApp1 from './MyApp1';
+import ComponentLifeCycle from './ComponentLifeCycle';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MyApp1 />
+    <ComponentLifeCycle />
   </React.StrictMode>,
   document.getElementById('root')
 );
