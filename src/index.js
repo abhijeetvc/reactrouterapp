@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import MyApp from './MyApp';
 import MyApp1 from './MyApp1';
 import ComponentLifeCycle from './ComponentLifeCycle';
+import MyForm from './MyForm';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ComponentLifeCycle />
+    <MyForm />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Destructuring</title>
+</head>
+<body>
+    <script>
+        
+        let person={
+            firstName:"John",
+            lastName:"Doe",
+            email:"abc@gmail.com",
+            city:"Pune"
+        }
+
+       // console.log(person.firstName);
+
+       let {firstName,lastName,email,city}=person
+       console.log(firstName);
+
+       function addNumbers(x,y,z){
+           return x+y+z
+       }
+       let numbers=[10,20,30]
+
+       console.log(addNumbers(...numbers));
+
+       function displayNames(name,...names){
+           return names
+       }
+    
+       console.log(displayNames('abc','xyz','pqr'));
+       
+       
+        
+    </script>
+</body>
+</html>
