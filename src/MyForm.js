@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 function MyForm(){
 
@@ -16,6 +17,7 @@ function MyForm(){
         "address":[]
     }
 
+    const[userList,setUserList]=React.useState([])
 // var , let, const
 
     // const car={
@@ -60,6 +62,23 @@ function MyForm(){
         console.log(user);  
     }
 
+    // fetch, axios
+    // const getData=()=>{
+    //     fetch("https://jsonplaceholder.typicode.com/users")
+    //         .then(response=>response.json())
+    //         .then(res=>{
+    //             setUserList(res)
+    //         })
+    // }
+
+    const getData=()=>{
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then(response=>response.data)
+             .then(res=>{
+                 setUserList(res)
+             })
+    }
+
     return(
         <div>
             <label htmlFor="firstName">FirstName : </label>
@@ -74,6 +93,13 @@ function MyForm(){
             <button type="button">Show Name</button>
             <button type="button" onClick={sendData}>Submit</button>
 
+            <button type="button" onClick={getData}>Get Data</button>
+
+            <ul>
+                {userList.map((user)=>(
+                    <li key={user.id}>{user.name+" | "+user.email}</li>
+                ))}
+            </ul>
         </div>
     )
 }
