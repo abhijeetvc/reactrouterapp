@@ -13,8 +13,8 @@ function MyForm(){
         "firstName":'',
         "lastName":'',
         "city":'',
-        "email":'',
-        "address":[]
+        // "email":'',
+        // "address":[]
     }
 
     const[userList,setUserList]=React.useState([])
@@ -60,6 +60,10 @@ function MyForm(){
 
     const sendData=()=>{
         console.log(user);  
+        axios.post("http://localhost:8989/saveData",user)
+             .then(response=>{
+                 console.log(response);
+             })
     }
 
     // fetch, axios
@@ -71,6 +75,7 @@ function MyForm(){
     //         })
     // }
 
+    // npm install axios
     const getData=()=>{
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then(response=>response.data)
