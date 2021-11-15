@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import axios from 'axios'
 
 function MyForm(){
@@ -77,11 +77,53 @@ function MyForm(){
 
     // npm install axios
     const getData=()=>{
-        axios.get("https://jsonplaceholder.typicode.com/users")
-            .then(response=>response.data)
-             .then(res=>{
-                 setUserList(res)
-             })
+        // axios.get("https://jsonplaceholder.typicode.com/users")
+        //     .then(response=>response.data)
+        //      .then(res=>{
+        //          setUserList(res)
+        //      })
+    }
+
+    //useEffect
+    // way 1
+    //  useEffect(()=>{
+    //      console.log("Hiiiiiiii");
+        
+    //      axios.get("https://jsonplaceholder.typicode.com/users")
+    //          .then(response=>response.data)
+    //           .then(res=>{
+    //               setUserList(res)
+    //           })
+    //  })
+
+    // usage 2
+    //  useEffect(()=>{
+    //      console.log("Hiiiiiiii");
+        
+    //      axios.get("https://jsonplaceholder.typicode.com/users")
+    //          .then(response=>response.data)
+    //           .then(res=>{
+    //               setUserList(res)
+    //           })
+    //  },[])
+
+    //usage 3
+    const[number,setNumber]=React.useState(0)
+
+     useEffect(()=>{
+         console.log("hiiiii");
+        
+         axios.get("https://jsonplaceholder.typicode.com/users")
+              .then(response=>response.data)
+               .then(res=>{
+                   setUserList(res)
+               })
+      },[number])
+
+    //  Menu1, Menu2  // React Query
+    
+    const incrementValue=()=>{
+        setNumber(number+1)
     }
 
     return(
@@ -97,6 +139,7 @@ function MyForm(){
 
             <button type="button">Show Name</button>
             <button type="button" onClick={sendData}>Submit</button>
+            <button type="button" onClick={incrementValue}>Add</button>
 
             <button type="button" onClick={getData}>Get Data</button>
 
