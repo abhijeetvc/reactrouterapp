@@ -58,12 +58,23 @@ function MyForm(){
     //     setLName(lastName)
     // }
 
+    const [message,setMessage]=React.useState('')
+
     const sendData=()=>{
         console.log(user);  
-        axios.post("http://localhost:8989/saveData",user)
+        axios.post("http://localhost:8787/saveData",user)
              .then(response=>{
-                 console.log(response);
-             })
+                 const res=response.data
+                 if(res.statusCode==201){
+                    console.log("Data Saved!!!");
+                    setMessage(res.message)
+                 }
+                })
+            //  .then(res=>{
+            //      if(res.statusCode==201){
+            //          console.log("Data Saved!!!");                  
+            //      }
+            //  })
     }
 
     // fetch, axios
@@ -148,6 +159,8 @@ function MyForm(){
                     <li key={user.id}>{user.name+" | "+user.email}</li>
                 ))}
             </ul>
+            <p>{message}</p>
+            <p>This is P tag</p>
         </div>
     )
 }

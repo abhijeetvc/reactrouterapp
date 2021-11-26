@@ -7,10 +7,11 @@ import MyApp from './MyApp';
 import MyApp1 from './MyApp1';
 import ComponentLifeCycle from './ComponentLifeCycle';
 import MyForm from './MyForm';
+import ReactRouter from './ReactRouter';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MyForm />
+    <ReactRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );
